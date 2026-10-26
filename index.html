@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="10Words">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <title>10Words — Английский каждый день</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">10<span>Words</span></div>
+      <div class="streak" id="streak">🔥 0</div>
+    </header>
+
+    <main id="main">
+      <div class="day-info">
+        <h1 id="day-title">День 1</h1>
+        <p id="day-subtitle">10 новых слов</p>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="word-list" id="word-list"></div>
+
+      <div class="actions">
+        <button class="btn primary" id="learn-btn">Учить слова</button>
+        <button class="btn secondary" id="quiz-btn">Тест</button>
+      </div>
+
+      <div class="stats">
+        <div>Выучено дней: <strong id="completed-days">0</strong></div>
+        <div>Всего слов: <strong id="total-words">0</strong></div>
+      </div>
+    </main>
+
+    <!-- Flashcard Modal -->
+    <div class="modal" id="learn-modal">
+      <div class="modal-content">
+        <div class="card" id="flashcard">
+          <div class="word-en" id="card-en"></div>
+          <div class="word-ru" id="card-ru" style="display:none"></div>
+          <div class="example" id="card-example" style="display:none"></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn" id="speak-btn">🔊 Произнести</button>
+          <button class="btn" id="show-btn">Показать перевод</button>
+          <button class="btn primary" id="next-card">Далее →</button>
+        </div>
+        <button class="close-btn" id="close-learn">✕</button>
+      </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="modal" id="quiz-modal">
+      <div class="modal-content">
+        <div class="quiz-progress" id="quiz-progress">1 / 10</div>
+        <div class="quiz-word" id="quiz-word"></div>
+        <div class="options" id="quiz-options"></div>
+        <div class="quiz-result" id="quiz-result" style="display:none"></div>
+        <button class="close-btn" id="close-quiz">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(console.error);
+    }
+  </script>
+</body>
+</html>

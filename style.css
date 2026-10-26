@@ -1,0 +1,276 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 24px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.logo span {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.streak {
+  background: #1e293b;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.day-info {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.day-info h1 {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.day-info p {
+  color: #94a3b8;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #334155;
+  border-radius: 999px;
+  margin: 16px 0 24px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.word-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.word-item {
+  background: #1e293b;
+  padding: 14px 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #334155;
+}
+
+.word-item .en {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.word-item .ru {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn.primary {
+  background: #0ea5e9;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #0284c7;
+}
+
+.btn.secondary {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.btn.secondary:hover {
+  background: #475569;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background: #1e293b;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.stats strong {
+  color: #e2e8f0;
+  font-size: 18px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #1e293b;
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.word-en {
+  font-size: 36px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.word-ru {
+  font-size: 24px;
+  margin-top: 12px;
+  color: #e2e8f0;
+}
+
+.example {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-word {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 20px 0;
+  color: #38bdf8;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  background: #334155;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.15s;
+}
+
+.option:hover {
+  background: #475569;
+}
+
+.option.correct {
+  background: #16a34a;
+  color: white;
+}
+
+.option.wrong {
+  background: #dc2626;
+  color: white;
+}
+
+.quiz-progress {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.quiz-result {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  #app {
+    padding: 12px;
+  }
+  .word-en {
+    font-size: 30px;
+  }
+}
